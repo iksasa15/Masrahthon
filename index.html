@@ -1,595 +1,539 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ar">
-
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الميدان - عالم المسرح في تطبيق واحد</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap');
-
         :root {
-            --primary: #6b031f;
-            /* اللون الأحمر العنابي */
-            --secondary: #a87e43;
-            /* اللون الذهبي المضاف */
-            --light-bg: #e8e8d5;
-            /* اللون البيج الفاتح */
-            --dark: #231f20;
-            /* اللون الأسود الغامق */
-            --white: #ffffff;
+            --primary: #3a6ea5;
+            --secondary: #f0a500;
+            --dark: #333;
+            --light: #f8f9fa;
             --gray: #6c757d;
-            --shadow: 0 4px 20px rgba(35, 31, 32, 0.1);
         }
-
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
+            font-family: 'Cairo', sans-serif;
         }
-
+        
         body {
-            background-color: var(--light-bg);
+            background-color: var(--light);
             color: var(--dark);
             line-height: 1.6;
         }
-
+        
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
         }
-
+        
         header {
-            background-color: var(--white);
-            box-shadow: var(--shadow);
-            padding: 20px 0;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
-            z-index: 1000;
+            z-index: 100;
         }
-
+        
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 20px 0;
         }
-
+        
         .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-img {
-            height: 120px;
-            /* تكبير الشعار */
-            margin-left: 15px;
-        }
-
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text-main {
+            font-size: 24px;
             font-weight: 700;
             color: var(--primary);
-            font-size: 28px;
-            /* تكبير النص */
+            text-decoration: none;
         }
-
-        .logo-text-sub {
-            color: var(--dark);
-            font-weight: 500;
-            font-size: 20px;
-            /* تكبير النص */
+        
+        .logo-en {
+            color: var(--secondary);
+            margin-left: 5px;
         }
-
-        .menu {
+        
+        .nav-links {
             display: flex;
-            list-style: none;
+            gap: 30px;
         }
-
-        .menu li {
-            margin: 0 15px;
-        }
-
-        .menu a {
+        
+        .nav-links a {
             text-decoration: none;
             color: var(--dark);
-            font-weight: 500;
+            font-weight: 600;
             transition: color 0.3s;
         }
-
-        .menu a:hover {
+        
+        .nav-links a:hover {
             color: var(--primary);
         }
-
-        .cta-button {
-            background-color: var(--primary);
-            color: var(--white);
-            padding: 10px 25px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-            box-shadow: 0 4px 12px rgba(107, 3, 31, 0.2);
-        }
-
-        .cta-button:hover {
-            background-color: var(--secondary);
-        }
-
+        
         .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, #2d5a87 100%);
+            color: white;
             padding: 100px 0;
-            background: linear-gradient(120deg, var(--primary), var(--dark));
-            color: var(--white);
             text-align: center;
         }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 900;
+        
+        .hero h1 {
+            font-size: 48px;
             margin-bottom: 20px;
         }
-
-        .hero-subtitle {
-            font-size: 1.5rem;
+        
+        .hero p {
+            font-size: 18px;
             margin-bottom: 40px;
-            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
-        .button-group {
+        
+        .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 30px;
+            margin-top: 40px;
         }
-
-        .primary-button {
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
             background-color: var(--secondary);
-            color: var(--white);
-            padding: 15px 30px;
+            color: white;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
-
-        .primary-button:hover {
+        
+        .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
-            background-color: #bf9555;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
-
-        .secondary-button {
+        
+        .btn-outline {
             background-color: transparent;
-            color: var(--white);
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            border: 2px solid var(--white);
-            transition: all 0.3s;
+            border: 2px solid white;
         }
-
-        .secondary-button:hover {
-            background-color: var(--white);
+        
+        .btn-outline:hover {
+            background-color: white;
             color: var(--primary);
         }
-
-        .section {
+        
+        .events {
             padding: 80px 0;
-        }
-
-        .section-title {
             text-align: center;
-            font-size: 2.5rem;
-            font-weight: 700;
+        }
+        
+        .section-title {
+            font-size: 36px;
             margin-bottom: 20px;
             color: var(--primary);
         }
-
+        
         .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 50px;
-            color: var(--dark);
+            font-size: 18px;
+            margin-bottom: 50px;
+            color: var(--gray);
         }
-
+        
+        .event-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .event-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 350px;
+            transition: transform 0.3s;
+        }
+        
+        .event-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .event-img {
+            height: 200px;
+            background-color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .event-img::before {
+            content: "🎭";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 60px;
+        }
+        
+        .event-content {
+            padding: 25px;
+            text-align: right;
+        }
+        
+        .event-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .event-venue {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .event-details {
+            margin-bottom: 25px;
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .event-price {
+            font-weight: 700;
+            color: var(--secondary);
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .btn-sm {
+            padding: 10px 20px;
+            font-size: 14px;
+        }
+        
+        .about {
+            padding: 100px 0;
+            background-color: white;
+            text-align: center;
+        }
+        
         .about-content {
             max-width: 800px;
             margin: 0 auto;
+        }
+        
+        .about-title {
+            font-size: 36px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .about-description {
+            font-size: 18px;
+            margin-bottom: 50px;
+            color: var(--gray);
+        }
+        
+        .about-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .about-card {
+            background-color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            width: 100%;
+            max-width: 350px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .about-card-title {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .features {
+            padding: 80px 0;
+            background-color: var(--light);
             text-align: center;
         }
-
-        .about-title {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin-bottom: 30px;
-        }
-
-        .about-item {
-            margin-bottom: 40px;
-        }
-
-        .about-item h3 {
-            font-size: 1.5rem;
-            color: var(--secondary);
-            margin-bottom: 10px;
-        }
-
-        .features {
-            background-color: var(--white);
-        }
-
+        
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
             margin-top: 50px;
         }
-
-        .feature-card {
-            background-color: var(--light-bg);
-            border-radius: 15px;
+        
+        .feature {
+            background-color: white;
+            border-radius: 10px;
             padding: 40px 30px;
-            text-align: center;
-            transition: all 0.3s;
-            box-shadow: var(--shadow);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
         }
-
-        .feature-card:hover {
+        
+        .feature:hover {
             transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
-
+        
         .feature-icon {
-            font-size: 3rem;
-            color: var(--secondary);
+            font-size: 48px;
             margin-bottom: 20px;
-        }
-
-        .feature-title {
-            font-size: 1.5rem;
             color: var(--primary);
+        }
+        
+        .feature-title {
+            font-size: 20px;
             margin-bottom: 15px;
+            color: var(--dark);
         }
-
-        .cta-section {
-            background: linear-gradient(120deg, var(--primary), var(--dark));
-            color: var(--white);
-            text-align: center;
+        
+        .feature-description {
+            color: var(--gray);
+        }
+        
+        .cta {
             padding: 100px 0;
-            border-radius: 20px;
-            margin: 80px 15px;
+            background: linear-gradient(135deg, var(--primary) 0%, #2d5a87 100%);
+            color: white;
+            text-align: center;
         }
-
-        .cta-content {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
+        
         .cta-title {
-            font-size: 2.2rem;
-            font-weight: 700;
+            font-size: 36px;
             margin-bottom: 20px;
         }
-
-        .cta-subtitle {
-            font-size: 1.2rem;
+        
+        .cta-description {
+            font-size: 18px;
             margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-
+        
         footer {
             background-color: var(--dark);
-            color: var(--white);
-            padding: 60px 0 30px;
+            color: white;
+            padding: 50px 0 20px;
         }
-
+        
         .footer-content {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 40px;
+            justify-content: space-between;
             margin-bottom: 40px;
         }
-
+        
         .footer-logo {
-            flex: 1;
-            min-width: 200px;
-        }
-
-        .footer-logo-img {
-            height: 150px;
-            /* تكبير الشعار في الفوتر */
+            font-size: 24px;
+            font-weight: 700;
             margin-bottom: 20px;
-            margin-left: 15px;
         }
-
-        .footer-links {
-            display: flex;
-            gap: 30px;
-            align-items: center;
-        }
-
+        
         .footer-links a {
-            color: var(--light-bg);
+            display: block;
+            color: rgba(255,255,255,0.8);
             text-decoration: none;
+            margin-bottom: 10px;
             transition: color 0.3s;
-            font-size: 18px;
         }
-
+        
         .footer-links a:hover {
-            color: var(--secondary);
+            color: white;
         }
-
-        .copyright {
+        
+        .footer-bottom {
             text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 1rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
         }
-
-        /* Responsive design */
+        
         @media (max-width: 768px) {
-            .navbar {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero-buttons {
                 flex-direction: column;
-                gap: 20px;
+                align-items: center;
             }
-
-            .menu {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            .hero-title {
-                font-size: 2.2rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
-
-            .features-grid {
+            
+            .event-cards, .features-grid {
                 grid-template-columns: 1fr;
             }
-
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .footer-links {
-                justify-content: center;
-            }
-
-            .logo {
-                justify-content: center;
-            }
-
-            /* الحفاظ على حجم الشعار في الشاشات الصغيرة مع ضبط التنسيق */
-            .logo-img {
-                height: 100px;
-            }
-
-            .footer-logo-img {
-                height: 120px;
-            }
-        }
-
-        /* Animation */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-
-        .divider {
-            width: 80px;
-            height: 4px;
-            background: var(--secondary);
-            margin: 0 auto 40px;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-        }
-
-        /* تعديلات إضافية للفوتر */
-        .footer-logo-text {
-            font-weight: 700;
-            color: var(--white);
-            font-size: 28px;
-        }
-
-        .footer-logo-subtext {
-            color: var(--light-bg);
-            font-size: 20px;
         }
     </style>
 </head>
-
 <body>
-    <!-- Header -->
     <header>
         <div class="container">
             <nav class="navbar">
-                <div class="logo-container">
-                    <img src="Maydan.png" alt="Maydan Logo" class="logo-img">
-                    <div class="logo-text">
-                        <span class="logo-text-main">Maydan</span>
-                        <span class="logo-text-sub">الميدان</span>
-                    </div>
+                <a href="#" class="logo">الميدان <span class="logo-en">Maydan</span></a>
+                <div class="nav-links">
+                    <a href="#">الرئيسية</a>
+                    <a href="#about">عن الميدان</a>
+                    <a href="#features">المميزات</a>
+                    <a href="#cta">ابدأ الآن</a>
                 </div>
-                <ul class="menu">
-                    <li><a href="#">الرئيسية</a></li>
-                    <li><a href="#about">عن الميدان</a></li>
-                    <li><a href="#features">المميزات</a></li>
-                    <li><a href="#" class="cta-button">ابدأ الآن</a></li>
-                </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-content animate">
-                <h1 class="hero-title">عالم المسرح في تطبيق واحد</h1>
-                <p class="hero-subtitle">منصة رقمية تجمع عشاق المسرح والفعاليات الثقافية، وتوفر أدوات ذكية للمنظمين لفهم
-                    جمهورهم بشكل أفضل</p>
-                <div class="button-group">
-                    <a href="#" class="primary-button">اكتشف الفعاليات</a>
-                    <a href="#" class="secondary-button">للمنظمين</a>
-                </div>
+            <h1>عالم المسرح في تطبيق واحد</h1>
+            <p>منصة رقمية تجمع عشاق المسرح والفعاليات الثقافية، وتوفر أدوات ذكية للمنظمين لفهم جمهورهم بشكل أفضل</p>
+            <div class="hero-buttons">
+                <a href="#events" class="btn">اكتشف الفعاليات</a>
+                <a href="#" class="btn btn-outline">للمنظمين</a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section">
+    <section id="events" class="events">
         <div class="container">
-            <h2 class="section-title">عن الميدان</h2>
-            <div class="divider"></div>
-            <div class="about-content animate">
-                <h3 class="about-title">نحن نؤمن بقوة المسرح في إثراء المجتمع</h3>
-
-                <div class="about-item">
-                    <h3>رؤيتنا</h3>
-                    <p>أن يكون التطبيق دليلك لمعرفة آخر مستجدات المسرح ومعرفة من هو جمهورك، وأن نكون الجسر الذي يربط
-                        المسرح بالجمهور في كل مكان.</p>
+            <h2 class="section-title">أحدث الفعاليات المسرحية</h2>
+            <p class="section-subtitle">استكشف أحدث العروض المسرحية والفعاليات الثقافية في منطقتك</p>
+            
+            <div class="event-cards">
+                <div class="event-card">
+                    <div class="event-img"></div>
+                    <div class="event-content">
+                        <h3 class="event-title">مسرحية "الأمل"</h3>
+                        <div class="event-venue">مسرح الثقافة الوطني</div>
+                        <div class="event-details">٧:٠٠ مساءً - ١٠ يناير ٢٠٢٦<br>الرياض، حي السفارات</div>
+                        <div class="event-price">١٥٠ ر.س</div>
+                        <a href="payment.html" class="btn btn-sm">احجز الآن</a>
+                    </div>
                 </div>
-
-                <div class="about-item">
-                    <h3>رسالتنا</h3>
-                    <p>تمكين الجمهور من الوصول للمسرح بسهولة، وتقديم أدوات تحليل وبيانات ذكية للمنظمين لفهم احتياجات
-                        الجمهور وتطوير تجربتهم.</p>
+                
+                <div class="event-card">
+                    <div class="event-img"></div>
+                    <div class="event-content">
+                        <h3 class="event-title">أمسية موسيقية "أصوات الشرق"</h3>
+                        <div class="event-venue">دار الأوبرا</div>
+                        <div class="event-details">٨:٣٠ مساءً - ١٥ يناير ٢٠٢٦<br>جدة، الكورنيش</div>
+                        <div class="event-price">٢٠٠ ر.س</div>
+                        <a href="payment.html" class="btn btn-sm">احجز الآن</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-img"></div>
+                    <div class="event-content">
+                        <h3 class="event-title">ستاند أب كوميدي "ليلة ضحك"</h3>
+                        <div class="event-venue">قاعة الملك فهد الثقافية</div>
+                        <div class="event-details">٩:٠٠ مساءً - ٢٠ يناير ٢٠٢٦<br>الرياض، العليا</div>
+                        <div class="event-price">١٨٠ ر.س</div>
+                        <a href="payment.html" class="btn btn-sm">احجز الآن</a>
+                    </div>
+                </div>
+                
+                <div class="event-card">
+                    <div class="event-img"></div>
+                    <div class="event-content">
+                        <h3 class="event-title">مسرحية "تاريخ وطن"</h3>
+                        <div class="event-venue">مسرح المفتاحة</div>
+                        <div class="event-details">٧:٣٠ مساءً - ٢٥ يناير ٢٠٢٦<br>أبها، المفتاحة</div>
+                        <div class="event-price">١٢٠ ر.س</div>
+                        <a href="payment.html" class="btn btn-sm">احجز الآن</a>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="section features">
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="about-title">عن الميدان</h2>
+            <p class="about-description">نحن نؤمن بقوة المسرح في إثراء المجتمع</p>
+            
+            <div class="about-cards">
+                <div class="about-card">
+                    <h3 class="about-card-title">رؤيتنا</h3>
+                    <p>أن يكون التطبيق دليلك لمعرفة آخر مستجدات المسرح ومعرفة من هو جمهورك، وأن نكون الجسر الذي يربط المسرح بالجمهور في كل مكان.</p>
+                </div>
+                
+                <div class="about-card">
+                    <h3 class="about-card-title">رسالتنا</h3>
+                    <p>تمكين الجمهور من الوصول للمسرح بسهولة، وتقديم أدوات تحليل وبيانات ذكية للمنظمين لفهم احتياجات الجمهور وتطوير تجربتهم.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features">
         <div class="container">
             <h2 class="section-title">لماذا الميدان؟</h2>
-            <div class="divider"></div>
             <p class="section-subtitle">مميزات تجعل تجربتك فريدة</p>
-
-            <div class="features-grid animate">
-                <div class="feature-card">
+            
+            <div class="features-grid">
+                <div class="feature">
                     <div class="feature-icon">🎭</div>
                     <h3 class="feature-title">اكتشاف الفعاليات</h3>
-                    <p>تصفح واكتشف أحدث العروض المسرحية والفعاليات الثقافية في منطقتك وحول العالم.</p>
+                    <p class="feature-description">تصفح واكتشف أحدث العروض المسرحية والفعاليات الثقافية في منطقتك وحول العالم.</p>
                 </div>
-
-                <div class="feature-card">
+                
+                <div class="feature">
                     <div class="feature-icon">📊</div>
                     <h3 class="feature-title">تفضيلات الجمهور</h3>
-                    <p>أدوات تحليل متقدمة تساعد المنظمين على فهم اهتمامات الجمهور وتفضيلاتهم لتطوير العروض.</p>
+                    <p class="feature-description">أدوات تحليل متقدمة تساعد المنظمين على فهم اهتمامات الجمهور وتفضيلاتهم لتطوير العروض.</p>
                 </div>
-
-                <div class="feature-card">
+                
+                <div class="feature">
                     <div class="feature-icon">📚</div>
                     <h3 class="feature-title">قاعدة البيانات</h3>
-                    <p>أرشيف شامل للعروض المسرحية والفنانين والمسارح، يمكن البحث فيه وتصفحه بسهولة.</p>
+                    <p class="feature-description">أرشيف شامل للعروض المسرحية والفنانين والمسارح، يمكن البحث فيه وتصفحه بسهولة.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Call to Action Section -->
-    <section class="container">
-        <div class="cta-section animate">
-            <div class="cta-content">
-                <h2 class="cta-title">انضم إلى مجتمع الميدان اليوم</h2>
-                <p class="cta-subtitle">سواء كنت من عشاق المسرح أو من منظمي الفعاليات، الميدان يوفر لك ما تحتاجه</p>
-                <a href="#" class="primary-button">ابدأ رحلتك مع الميدان</a>
-            </div>
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2 class="cta-title">انضم إلى مجتمع الميدان اليوم</h2>
+            <p class="cta-description">سواء كنت من عشاق المسرح أو من منظمي الفعاليات، الميدان يوفر لك ما تحتاجه</p>
+            <a href="#" class="btn">ابدأ رحلتك مع الميدان</a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <div class="logo-container">
-                        <img src="Maydan.png" alt="Maydan Logo" class="footer-logo-img">
-                        <div class="logo-text">
-                            <span class="footer-logo-text">Maydan</span>
-                            <span class="footer-logo-subtext">الميدان</span>
-                        </div>
-                    </div>
+                    الميدان <span class="logo-en">Maydan</span>
                 </div>
                 <div class="footer-links">
                     <a href="#">تواصل معنا</a>
                     <a href="#">الشروط والأحكام</a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>© 2025 الميدان. جميع الحقوق محفوظة</p>
+            <div class="footer-bottom">
+                © 2025 الميدان. جميع الحقوق محفوظة
             </div>
         </div>
     </footer>
-
-    <script>
-        // Add smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Animation on scroll
-        const animateElements = document.querySelectorAll('.animate');
-
-        function checkIfInView() {
-            animateElements.forEach(element => {
-                const rect = element.getBoundingClientRect();
-                const windowHeight = window.innerHeight || document.documentElement.clientHeight;
-
-                if (rect.top <= windowHeight * 0.8) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        }
-
-        // Initial check
-        window.addEventListener('load', checkIfInView);
-
-        // Check on scroll
-        window.addEventListener('scroll', checkIfInView);
-    </script>
 </body>
-
 </html>
