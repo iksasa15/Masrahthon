@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary: #3a6ea5;
-            --secondary: #f0a500;
-            --dark: #333;
-            --light: #f8f9fa;
+            --primary: #6B031F;
+            --secondary: #E8E8D5;
+            --dark: #000000;
+            --light: #FFFFFF;
             --gray: #6c757d;
-            --success: #28a745;
-            --danger: #dc3545;
+            --success: #E8E8D5;
+            --danger: #6B031F;
             --border: #e9ecef;
+            --icon-color: var(--primary); /* تم تعريف لون الأيقونات كمتغير مستقل */
         }
         
         * {
@@ -26,7 +27,7 @@
         }
         
         body {
-            background-color: var(--light);
+            background-color: #f9f9f9;
             color: var(--dark);
             line-height: 1.6;
         }
@@ -39,7 +40,7 @@
         }
         
         header {
-            background-color: white;
+            background-color: var(--light);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
@@ -56,12 +57,12 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--dark);
             text-decoration: none;
         }
         
         .logo-en {
-            color: var(--secondary);
+            color: var(--primary);
             margin-left: 5px;
         }
         
@@ -84,7 +85,7 @@
         /* Show details specific styles */
         .breadcrumbs {
             padding: 20px 0;
-            background-color: white;
+            background-color: var(--light);
             border-bottom: 1px solid var(--border);
         }
         
@@ -146,7 +147,7 @@
             top: 20px;
             right: 20px;
             background-color: var(--secondary);
-            color: white;
+            color: var(--dark);
             padding: 8px 15px;
             border-radius: 30px;
             font-weight: 600;
@@ -160,7 +161,7 @@
         
         .show-title {
             font-size: 36px;
-            color: var(--dark);
+            color: var(--primary);
             margin-bottom: 20px;
         }
         
@@ -180,7 +181,7 @@
         
         .meta-item i {
             margin-left: 8px;
-            color: var(--primary);
+            color: var(--icon-color); /* تم تحديث لون الأيقون */
             font-size: 18px;
             width: 20px;
             text-align: center;
@@ -241,7 +242,7 @@
         }
         
         .quantity-btn:hover {
-            background-color: var(--border);
+            background-color: rgba(232, 232, 213, 0.3);
         }
         
         .quantity-input {
@@ -282,7 +283,8 @@
         }
         
         .btn:hover {
-            background-color: #2d5a87;
+            background-color: #550217;
+            transform: translateY(-3px);
         }
         
         .btn-block {
@@ -390,7 +392,7 @@
         }
         
         .directions-link:hover {
-            color: #2d5a87;
+            color: #550217;
         }
         
         .venue-facilities {
@@ -404,11 +406,15 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            background-color: var(--light);
+            background-color: rgba(232, 232, 213, 0.3);
             padding: 8px 15px;
             border-radius: 30px;
             color: var(--dark);
             font-size: 14px;
+        }
+        
+        .venue-facility i {
+            color: var(--icon-color); /* تم تحديث لون الأيقون */
         }
         
         .cast-grid {
@@ -428,6 +434,7 @@
             border-radius: 50%;
             overflow: hidden;
             margin: 0 auto 15px;
+            border: 3px solid var(--secondary);
         }
         
         .cast-image img {
@@ -439,6 +446,7 @@
         .cast-name {
             font-weight: 600;
             margin-bottom: 5px;
+            color: var(--primary);
         }
         
         .cast-role {
@@ -466,6 +474,7 @@
         
         .reviewer {
             font-weight: 600;
+            color: var(--primary);
         }
         
         .review-date {
@@ -474,7 +483,7 @@
         }
         
         .rating {
-            color: var(--secondary);
+            color: var(--icon-color); /* تم تحديث لون النجوم في التقييمات */
             font-size: 14px;
             margin-bottom: 10px;
         }
@@ -570,7 +579,7 @@
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 10px;
-            color: var(--dark);
+            color: var(--primary);
         }
         
         .show-card-meta {
@@ -590,6 +599,7 @@
         .show-card-meta i {
             margin-left: 8px;
             width: 16px;
+            color: var(--icon-color); /* تم تحديث لون الأيقون */
         }
         
         .show-card-price {
@@ -627,7 +637,7 @@
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--secondary);
         }
         
         .footer-bottom {
@@ -658,7 +668,7 @@
         
         .floating-share:hover {
             transform: scale(1.1);
-            background-color: #2d5a87;
+            background-color: #550217;
         }
         
         @media (max-width: 768px) {

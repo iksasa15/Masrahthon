@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary: #3a6ea5;
-            --secondary: #f0a500;
-            --dark: #333;
-            --light: #f8f9fa;
+            --primary: #6B031F;
+            --secondary: #E8E8D5;
+            --dark: #000000;
+            --light: #FFFFFF;
             --gray: #6c757d;
-            --success: #28a745;
-            --danger: #dc3545;
+            --success: #E8E8D5;
+            --danger: #6B031F;
+            --border: #e9ecef;
         }
         
         * {
@@ -25,7 +26,7 @@
         }
         
         body {
-            background-color: var(--light);
+            background-color: #f9f9f9;
             color: var(--dark);
             line-height: 1.6;
         }
@@ -38,7 +39,7 @@
         }
         
         header {
-            background-color: white;
+            background-color: var(--light);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
@@ -55,12 +56,12 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--dark);
             text-decoration: none;
         }
         
         .logo-en {
-            color: var(--secondary);
+            color: var(--primary);
             margin-left: 5px;
         }
         
@@ -81,7 +82,7 @@
         }
         
         .page-title {
-            background-color: var(--primary);
+            background: linear-gradient(135deg, var(--primary) 0%, rgba(107, 3, 31, 0.8) 100%);
             color: white;
             padding: 40px 0;
             text-align: center;
@@ -116,7 +117,7 @@
         .order-summary {
             flex: 1;
             min-width: 300px;
-            background-color: white;
+            background-color: var(--light);
             border-radius: 10px;
             padding: 30px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -124,7 +125,7 @@
         }
         
         .form-card {
-            background-color: white;
+            background-color: var(--light);
             border-radius: 10px;
             padding: 30px;
             margin-bottom: 30px;
@@ -200,7 +201,7 @@
         
         .payment-method.active {
             border-color: var(--primary);
-            background-color: rgba(58, 110, 165, 0.05);
+            background-color: rgba(107, 3, 31, 0.05);
         }
         
         .payment-method:hover {
@@ -253,18 +254,19 @@
         }
         
         .btn:hover {
-            background-color: #2d5a87;
+            background-color: #550217;
+            transform: translateY(-3px);
         }
         
         .btn-secondary {
-            background-color: white;
+            background-color: var(--light);
             color: var(--primary);
             border: 2px solid var(--primary);
         }
         
         .btn-secondary:hover {
             background-color: var(--primary);
-            color: white;
+            color: var(--light);
         }
         
         .summary-title {
@@ -296,6 +298,7 @@
         .event-detail i {
             margin-left: 10px;
             width: 16px;
+            color: var(--primary);
         }
         
         .summary-item {
@@ -318,7 +321,7 @@
             display: flex;
             align-items: center;
             padding: 15px;
-            background-color: #f8f9fa;
+            background-color: rgba(232, 232, 213, 0.3);
             border-radius: 8px;
             margin-top: 30px;
             font-size: 14px;
@@ -327,12 +330,12 @@
         
         .security-note i {
             margin-left: 10px;
-            color: var(--success);
+            color: var(--primary);
         }
         
         footer {
             background-color: var(--dark);
-            color: white;
+            color: var(--light);
             padding: 50px 0 20px;
         }
         
@@ -358,7 +361,7 @@
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--secondary);
         }
         
         .footer-bottom {
@@ -384,14 +387,14 @@
         }
         
         .applied-coupon {
-            background-color: rgba(40, 167, 69, 0.1);
+            background-color: rgba(232, 232, 213, 0.3);
             padding: 10px 15px;
             border-radius: 6px;
             margin-bottom: 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            color: var(--success);
+            color: var(--dark);
             font-size: 14px;
         }
         

@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary: #3a6ea5;
-            --secondary: #f0a500;
-            --dark: #333;
-            --light: #f8f9fa;
+            --primary: #6B031F;
+            --secondary: #E8E8D5;
+            --dark: #000000;
+            --light: #FFFFFF;
             --gray: #6c757d;
-            --success: #28a745;
-            --danger: #dc3545;
+            --success: #E8E8D5;
+            --danger: #6B031F;
             --border: #e9ecef;
         }
         
@@ -40,7 +40,7 @@
         
         /* Header */
         header {
-            background-color: white;
+            background-color: var(--light);
             box-shadow: 0 2px 5px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
@@ -57,12 +57,12 @@
         .logo {
             font-size: 24px;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--dark);
             text-decoration: none;
         }
         
         .logo-en {
-            color: var(--secondary);
+            color: var(--primary);
             margin-left: 5px;
         }
         
@@ -85,7 +85,7 @@
         /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
-            color: white;
+            color: var(--light);
             text-align: center;
             padding: 120px 0;
             margin-bottom: 80px;
@@ -114,7 +114,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             border-radius: 50px;
             overflow: hidden;
-            background-color: white;
+            background-color: var(--light);
         }
         
         .search-input {
@@ -128,7 +128,7 @@
         
         .search-btn {
             background-color: var(--secondary);
-            color: white;
+            color: var(--dark);
             border: none;
             padding: 15px 30px;
             font-size: 16px;
@@ -138,7 +138,7 @@
         }
         
         .search-btn:hover {
-            background-color: #d89400;
+            background-color: #D8D8C5;
         }
         
         /* Featured Events Section */
@@ -171,7 +171,7 @@
         }
         
         .event-card {
-            background-color: white;
+            background-color: var(--light);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -207,7 +207,7 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background-color: white;
+            background-color: var(--light);
             color: var(--primary);
             width: 60px;
             height: 60px;
@@ -258,6 +258,7 @@
         .event-meta i {
             margin-left: 8px;
             width: 16px;
+            color: var(--primary);
         }
         
         .event-price {
@@ -268,7 +269,7 @@
         
         /* Categories Section */
         .categories-section {
-            background-color: white;
+            background-color: var(--light);
         }
         
         .categories-grid {
@@ -291,7 +292,7 @@
         .category-icon {
             width: 80px;
             height: 80px;
-            background-color: var(--light);
+            background-color: rgba(232, 232, 213, 0.3);
             border-radius: 50%;
             margin: 0 auto 15px;
             display: flex;
@@ -303,8 +304,8 @@
         }
         
         .category-card:hover .category-icon {
-            background-color: var(--primary);
-            color: white;
+            background-color: var(--secondary);
+            color: var(--dark);
         }
         
         .category-title {
@@ -314,7 +315,7 @@
         
         /* About Section */
         .about-section {
-            background-color: var(--light);
+            background-color: #f9f9f9;
         }
         
         .about-content {
@@ -367,12 +368,12 @@
         .feature-icon {
             width: 50px;
             height: 50px;
-            background-color: var(--primary);
+            background-color: var(--secondary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--dark);
             font-size: 20px;
             flex-shrink: 0;
         }
@@ -395,7 +396,7 @@
         /* CTA Section */
         .cta-section {
             background-color: var(--primary);
-            color: white;
+            color: var(--light);
             text-align: center;
             padding: 80px 0;
         }
@@ -429,22 +430,22 @@
         
         .btn-primary {
             background-color: var(--secondary);
-            color: white;
+            color: var(--dark);
         }
         
         .btn-primary:hover {
-            background-color: #d89400;
+            background-color: #D8D8C5;
             transform: translateY(-3px);
         }
         
         .btn-outline {
             background-color: transparent;
-            color: white;
-            border: 2px solid white;
+            color: var(--light);
+            border: 2px solid var(--light);
         }
         
         .btn-outline:hover {
-            background-color: white;
+            background-color: var(--light);
             color: var(--primary);
             transform: translateY(-3px);
         }
@@ -452,7 +453,7 @@
         /* Footer */
         footer {
             background-color: var(--dark);
-            color: white;
+            color: var(--light);
             padding: 50px 0 20px;
         }
         
@@ -473,7 +474,7 @@
             font-size: 18px;
             font-weight: 600;
             margin-bottom: 20px;
-            color: white;
+            color: var(--light);
         }
         
         .footer-links a {
@@ -485,7 +486,7 @@
         }
         
         .footer-links a:hover {
-            color: white;
+            color: var(--secondary);
         }
         
         .social-links {
@@ -501,14 +502,15 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--light);
             font-size: 18px;
             text-decoration: none;
             transition: all 0.3s;
         }
         
         .social-link:hover {
-            background-color: var(--primary);
+            background-color: var(--secondary);
+            color: var(--dark);
             transform: translateY(-3px);
         }
         
@@ -521,7 +523,7 @@
         
         /* Newsletter Subscription */
         .newsletter-section {
-            background-color: var(--light);
+            background-color: #f9f9f9;
             padding: 50px 0;
             text-align: center;
         }
@@ -546,7 +548,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
             border-radius: 50px;
             overflow: hidden;
-            background-color: white;
+            background-color: var(--light);
         }
         
         .newsletter-input {
@@ -560,7 +562,7 @@
         
         .newsletter-btn {
             background-color: var(--primary);
-            color: white;
+            color: var(--light);
             border: none;
             padding: 15px 30px;
             font-size: 16px;
@@ -570,13 +572,13 @@
         }
         
         .newsletter-btn:hover {
-            background-color: #2d5a87;
+            background-color: #550217;
         }
         
         .success-message {
             display: none;
             margin-top: 20px;
-            color: var(--success);
+            color: var(--primary);
             font-weight: 600;
         }
         
