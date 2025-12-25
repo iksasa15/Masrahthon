@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مسرحية "الأمل" - الميدان</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3a6ea5;
+            --secondary: #f0a500;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+            --success: #28a745;
+            --danger: #dc3545;
+            --border: #e9ecef;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Cairo', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        header {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .logo-en {
+            color: var(--secondary);
+            margin-left: 5px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Show details specific styles */
+        .breadcrumbs {
+            padding: 20px 0;
+            background-color: white;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .breadcrumb-list {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            list-style: none;
+        }
+        
+        .breadcrumb-item {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .breadcrumb-item a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .breadcrumb-item a:hover {
+            color: var(--primary);
+        }
+        
+        .breadcrumb-separator {
+            margin: 0 5px;
+            color: var(--gray);
+        }
+        
+        .show-details-section {
+            padding: 60px 0;
+        }
+        
+        .show-details-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        
+        .show-image {
+            flex: 1;
+            min-width: 300px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .show-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .show-status {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .show-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .show-title {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .show-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            color: var(--gray);
+            font-size: 16px;
+        }
+        
+        .meta-item i {
+            margin-left: 8px;
+            color: var(--primary);
+            font-size: 18px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .show-description {
+            margin-bottom: 30px;
+            color: var(--dark);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .show-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 30px;
+        }
+        
+        .booking-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        
+        .quantity-selector {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .quantity-label {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .quantity-btn {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .quantity-btn:hover {
+            background-color: var(--border);
+        }
+        
+        .quantity-input {
+            width: 60px;
+            height: 40px;
+            border: none;
+            border-right: 1px solid var(--border);
+            border-left: 1px solid var(--border);
+            text-align: center;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .total-price {
+            font-size: 16px;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+        
+        .total-value {
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #2d5a87;
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .show-additional-info {
+            margin-top: 60px;
+        }
+        
+        .info-tabs {
+            display: flex;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+        
+        .info-tab {
+            padding: 15px 30px;
+            font-weight: 600;
+            color: var(--gray);
+            cursor: pointer;
+            position: relative;
+            transition: color 0.3s;
+            white-space: nowrap;
+        }
+        
+        .info-tab.active {
+            color: var(--primary);
+        }
+        
+        .info-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            border-radius: 3px 3px 0 0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .venue-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .venue-map {
+            flex: 1;
+            min-width: 300px;
+            height: 300px;
+            background-color: #eee;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .venue-map img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .venue-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .venue-address {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .directions-link {
+            color: var(--primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        
+        .directions-link:hover {
+            color: #2d5a87;
+        }
+        
+        .venue-facilities {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .venue-facility {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--light);
+            padding: 8px 15px;
+            border-radius: 30px;
+            color: var(--dark);
+            font-size: 14px;
+        }
+        
+        .cast-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+        
+        .cast-member {
+            text-align: center;
+        }
+        
+        .cast-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 15px;
+        }
+        
+        .cast-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cast-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .cast-role {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .reviews-list {
+            margin-top: 20px;
+        }
+        
+        .review-card {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        
+        .reviewer {
+            font-weight: 600;
+        }
+        
+        .review-date {
+            font-size: 14px;
+            color: var(--gray);
+        }
+        
+        .rating {
+            color: var(--secondary);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .review-text {
+            color: var(--gray);
+        }
+        
+        .similar-shows {
+            margin-top: 80px;
+            padding-top: 60px;
+            border-top: 1px solid var(--border);
+        }
+        
+        .section-title {
+            font-size: 30px;
+            color: var(--primary);
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .shows-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            gap: 30px;
+        }
+        
+        .show-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .show-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+        
+        .show-card-image {
+            width: 100%;
+            height: 180px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .show-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .show-card:hover .show-card-image img {
+            transform: scale(1.05);
+        }
+        
+        .show-card-date {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: white;
+            color: var(--primary);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+        
+        .card-day {
+            font-size: 20px;
+            line-height: 1;
+            margin-bottom: 2px;
+        }
+        
+        .card-month {
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        
+        .show-card-info {
+            padding: 20px;
+        }
+        
+        .show-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+        
+        .show-card-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .show-card-meta span {
+            display: flex;
+            align-items: center;
+        }
+        
+        .show-card-meta i {
+            margin-left: 8px;
+            width: 16px;
+        }
+        
+        .show-card-price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 18px;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 50px 0 20px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.6);
+        }
+        
+        .floating-share {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            z-index: 100;
+            transition: all 0.3s;
+        }
+        
+        .floating-share:hover {
+            transform: scale(1.1);
+            background-color: #2d5a87;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .show-title {
+                font-size: 28px;
+            }
+            
+            .show-price {
+                font-size: 24px;
+            }
+            
+            .info-tab {
+                padding: 12px 20px;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .show-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .quantity-selector {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">الميدان <span class="logo-en">Maydan</span></a>
+                <div class="nav-links">
+                    <a href="index.html">الرئيسية</a>
+                    <a href="index.html#about">عن الميدان</a>
+                    <a href="index.html#features">المميزات</a>
+                    <a href="index.html#cta">ابدأ الآن</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="breadcrumbs">
+        <div class="container">
+            <ul class="breadcrumb-list">
+                <li class="breadcrumb-item"><a href="index.html">الرئيسية</a></li>
+                <li class="breadcrumb-separator">/</li>
+                <li class="breadcrumb-item"><a href="#">المسرحيات</a></li>
+                <li class="breadcrumb-separator">/</li>
+                <li class="breadcrumb-item">مسرحية "الأمل"</li>
+            </ul>
+        </div>
+    </div>
+
+    <section class="show-details-section">
+        <div class="container">
+            <div class="show-details-container">
+                <div class="show-image">
+                    <img src="https://via.placeholder.com/600x800" alt="مسرحية الأمل">
+                    <div class="show-status">متاح</div>
+                </div>
+                
+                <div class="show-info">
+                    <h1 class="show-title">مسرحية "الأمل"</h1>
+                    
+                    <div class="show-meta">
+                        <div class="meta-item">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>١٠ يناير ٢٠٢٦</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-clock"></i>
+                            <span>٧:٠٠ مساءً</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>مسرح الثقافة الوطني</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-hourglass-half"></i>
+                            <span>المدة: ساعتان</span>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fas fa-language"></i>
+                            <span>اللغة: العربية</span>
+                        </div>
+                    </div>
+                    
+                    <div class="show-description">
+                        <p>مسرحية "الأمل" هي عمل فني مميز يجمع بين الدراما والكوميديا، ويتناول قصة عائلة سعودية تواجه تحديات الحياة المعاصرة. تدور أحداث المسرحية حول الأب "سلطان" الذي يحاول التوفيق بين القيم التقليدية والتغيرات المتسارعة في المجتمع.</p>
+                        <p>من خلال حبكة درامية متقنة ومشاهد كوميدية ممتعة، تنقل المسرحية رسالة عميقة عن أهمية التمسك بالأمل والتفاؤل في مواجهة الصعاب. ستضحك، ستبكي، وستخرج من المسرح محملاً برسالة إيجابية تبقى معك طويلاً.</p>
+                    </div>
+                    
+                    <div class="show-price">
+                        ١٥٠ ر.س
+                    </div>
+                    
+                    <div class="booking-options">
+                        <div class="quantity-selector">
+                            <span class="quantity-label">عدد التذاكر:</span>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn decrease-btn">-</button>
+                                <input type="text" class="quantity-input" value="1" readonly>
+                                <button class="quantity-btn increase-btn">+</button>
+                            </div>
+                        </div>
+                        
+                        <div class="total-price">
+                            المجموع: <span class="total-value">١٥٠ ر.س</span>
+                        </div>
+                        
+                        <a href="payment.html" class="btn btn-block">احجز الآن</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="show-additional-info">
+                <div class="info-tabs">
+                    <div class="info-tab active" data-tab="details">التفاصيل</div>
+                    <div class="info-tab" data-tab="cast">فريق العمل</div>
+                    <div class="info-tab" data-tab="location">الموقع</div>
+                    <div class="info-tab" data-tab="reviews">التقييمات</div>
+                </div>
+                
+                <div class="tab-content active" id="details-tab">
+                    <h3>نبذة عن العرض</h3>
+                    <p>تقدم مسرحية "الأمل" تجربة مسرحية فريدة تجمع بين الإبداع الفني والرسالة الإنسانية. المسرحية من إخراج المبدع "خالد السعيد" وتأليف الكاتب "سعد المنصور"، وتأتي ضمن فعاليات موسم الرياض الثقافي.</p>
+                    
+                    <p>تتميز المسرحية بديكور مبهر وإضاءة احترافية وموسيقى تصويرية خاصة تمزج بين الأصالة والمعاصرة، مما يخلق أجواء فريدة تنقل المشاهد إلى عالم المسرحية بكل تفاصيله.</p>
+                    
+                    <h3>الموضوع والقصة</h3>
+                    <p>تدور أحداث المسرحية في حي شعبي بمدينة الرياض، حيث يعيش "سلطان" (رب الأسرة) مع زوجته وأبنائه الثلاثة. يواجه سلطان صعوبات مالية بعد فقدان وظيفته، ويضطر للبحث عن مصدر رزق جديد في ظل ظروف اقتصادية صعبة.</p>
+                    
+                    <p>مع تطور الأحداث، يكتشف سلطان وعائلته معنى جديداً للأمل والتكاتف العائلي، ويتعلمون أن الثروة الحقيقية تكمن في العلاقات الإنسانية والقيم الأصيلة، وليس في المال والمظاهر.</p>
+                    
+                    <h3>تفاصيل أخرى</h3>
+                    <ul>
+                        <li>المسرحية مناسبة لجميع أفراد العائلة</li>
+                        <li>المدة: ساعتان تتخللها استراحة لمدة 15 دقيقة</li>
+                        <li>يفتح باب المسرح قبل العرض بساعة</li>
+                        <li>يمنع اصطحاب الأطفال دون سن السادسة</li>
+                        <li>يمنع التصوير أثناء العرض</li>
+                    </ul>
+                </div>
+                
+                <div class="tab-content" id="cast-tab">
+                    <h3>فريق التمثيل</h3>
+                    <div class="cast-grid">
+                        <div class="cast-member">
+                            <div class="cast-image">
+                                <img src="https://via.placeholder.com/200" alt="أحمد العلي">
+                            </div>
+                            <h4 class="cast-name">أحمد العلي</h4>
+                            <div class="cast-role">دور سلطان</div>
+                        </div>
+                        
+                        <div class="cast-member">
+                            <div class="cast-image">
+                                <img src="https://via.placeholder.com/200" alt="هند الفهد">
+                            </div>
+                            <h4 class="cast-name">هند الفهد</h4>
+                            <div class="cast-role">دور نورة</div>
+                        </div>
+                        
+                        <div class="cast-member">
+                            <div class="cast-image">
+                                <img src="https://via.placeholder.com/200" alt="فهد الشمري">
+                            </div>
+                            <h4 class="cast-name">فهد الشمري</h4>
+                            <div class="cast-role">دور محمد</div>
+                        </div>
+                        
+                        <div class="cast-member">
+                            <div class="cast-image">
+                                <img src="https://via.placeholder.com/200" alt="سارة الأحمد">
+                            </div>
+                            <h4 class="cast-name">سارة الأحمد</h4>
+                            <div class="cast-role">دور ليلى</div>
+                        </div>
+                    </div>
+                    
+                    <h3 style="margin-top: 30px;">فريق الإنتاج</h3>
+                    <div class="cast-grid">
+                        <div class="cast-member">
+                            <div class="cast-image">
+                                <img src="https://via.placeholder.com/200" alt="خالد السعيد">
+                            </div>
+                            <h4 class="cast-name">خالد السعيد</h4>
+                            <div class="cast-role">المخرج</div>
+                        </div>
+                        
+                        <div class="cast-member">
+                            <div class="cast-image">
+                                <img src="https://via.placeholder.com/200" alt="سعد المنصور">
+                            </div>
+                            <h4 class="cast-name">سعد المنصور</h4>
+                            <div class="cast-role">الكاتب</div>
+                        </div>
+                        
+                        <div class="cast-member">
+                            <div class="cast-image">
+                                <img src="https://via.placeholder.com/200" alt="منال الحارثي">
+                            </div>
+                            <h4 class="cast-name">منال الحارثي</h4>
+                            <div class="cast-role">مصممة الأزياء</div>
+                        </div>
+                        
+                        <div class="cast-member">
+                            <div class="cast-image">
+                                <img src="https://via.placeholder.com/200" alt="سامي العبدالله">
+                            </div>
+                            <h4 class="cast-name">سامي العبدالله</h4>
+                            <div class="cast-role">مصمم الإضاءة</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="location-tab">
+                    <h3>مسرح الثقافة الوطني</h3>
+                    <div class="venue-info">
+                        <div class="venue-map">
+                            <img src="https://via.placeholder.com/800x600?text=Location+Map" alt="خريطة المسرح">
+                        </div>
+                        <div class="venue-details">
+                            <div class="venue-address">
+                                <h4>العنوان</h4>
+                                <p>طريق الملك فهد، حي السفارات، الرياض، المملكة العربية السعودية</p>
+                                <a href="#" class="directions-link">
+                                    الحصول على الاتجاهات <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                            
+                            <h4>مرافق المسرح</h4>
+                            <div class="venue-facilities">
+                                <div class="venue-facility">
+                                    <i class="fas fa-parking"></i>
+                                    <span>مواقف سيارات</span>
+                                </div>
+                                <div class="venue-facility">
+                                    <i class="fas fa-wheelchair"></i>
+                                    <span>تسهيلات لذوي الاحتياجات</span>
+                                </div>
+                                <div class="venue-facility">
+                                    <i class="fas fa-coffee"></i>
+                                    <span>كافيه</span>
+                                </div>
+                                <div class="venue-facility">
+                                    <i class="fas fa-wifi"></i>
+                                    <span>واي فاي مجاني</span>
+                                </div>
+                                <div class="venue-facility">
+                                    <i class="fas fa-restroom"></i>
+                                    <span>دورات مياه</span>
+                                </div>
+                                <div class="venue-facility">
+                                    <i class="fas fa-shopping-bag"></i>
+                                    <span>متجر الهدايا</span>
+                                </div>
+                            </div>
+                            
+                            <h4 style="margin-top: 20px;">ملاحظات</h4>
+                            <ul>
+                                <li>يفضل الوصول قبل 30 دقيقة من بدء العرض</li>
+                                <li>المسرح يتسع لـ 500 شخص</li>
+                                <li>يتوفر مصعد للطوابق العليا</li>
+                                <li>تتوفر خدمة صف السيارات مجاناً</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-content" id="reviews-tab">
+                    <div class="reviews-list">
+                        <div class="review-card">
+                            <div class="review-header">
+                                <span class="reviewer">عبدالله محمد</span>
+                                <span class="review-date">١٥ ديسمبر ٢٠٢٥</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                <p>مسرحية رائعة بكل المقاييس، أداء التمثيل كان استثنائياً، والقصة مؤثرة ومترابطة. استمتعت كثيراً بالحوار الذكي والمشاهد الكوميدية. أنصح بها بشدة للعائلات!</p>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-header">
+                                <span class="reviewer">نورة العتيبي</span>
+                                <span class="review-date">١٢ ديسمبر ٢٠٢٥</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="review-text">
+                                <p>أحببت المسرحية كثيراً، خاصة الرسالة التي تقدمها عن الأمل في وقت الصعاب. الديكور والإضاءة كانت مبهرة، والموسيقى أضافت جواً خاصاً للعرض. أعطي نجمة أقل فقط بسبب بعض فترات البطء في منتصف المسرحية.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="review-card">
+                            <div class="review-header">
+                                <span class="reviewer">فهد العنزي</span>
+                                <span class="review-date">٨ ديسمبر ٢٠٢٥</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                            <div class="review-text">
+                                <p>من أفضل المسرحيات التي حضرتها هذا العام. ممثلون موهوبون وقصة ملهمة وإخراج احترافي. الساعتان مرت سريعاً من الاستمتاع والضحك والتفكير. سأحضرها مرة أخرى مع عائلتي!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="similar-shows">
+        <div class="container">
+            <h2 class="section-title">عروض مشابهة</h2>
+            
+            <div class="shows-grid">
+                <a href="#" class="show-card">
+                    <div class="show-card-image">
+                        <img src="https://via.placeholder.com/300x200" alt="مسرحية الحلم">
+                        <div class="show-card-date">
+                            <div class="card-day">١٥</div>
+                            <div class="card-month">يناير</div>
+                        </div>
+                    </div>
+                    <div class="show-card-info">
+                        <h3 class="show-card-title">مسرحية "الحلم"</h3>
+                        <div class="show-card-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> مسرح الملز</span>
+                            <span><i class="far fa-clock"></i> ٨:٠٠ م</span>
+                        </div>
+                        <div class="show-card-price">١٣٠ ر.س</div>
+                    </div>
+                </a>
+                
+                <a href="#" class="show-card">
+                    <div class="show-card-image">
+                        <img src="https://via.placeholder.com/300x200" alt="مسرحية النجاح">
+                        <div class="show-card-date">
+                            <div class="card-day">٢٠</div>
+                            <div class="card-month">يناير</div>
+                        </div>
+                    </div>
+                    <div class="show-card-info">
+                        <h3 class="show-card-title">مسرحية "النجاح"</h3>
+                        <div class="show-card-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> مسرح الحمراء</span>
+                            <span><i class="far fa-clock"></i> ٦:٣٠ م</span>
+                        </div>
+                        <div class="show-card-price">١٦٠ ر.س</div>
+                    </div>
+                </a>
+                
+                <a href="#" class="show-card">
+                    <div class="show-card-image">
+                        <img src="https://via.placeholder.com/300x200" alt="مسرحية الطريق">
+                        <div class="show-card-date">
+                            <div class="card-day">٢٥</div>
+                            <div class="card-month">يناير</div>
+                        </div>
+                    </div>
+                    <div class="show-card-info">
+                        <h3 class="show-card-title">مسرحية "الطريق"</h3>
+                        <div class="show-card-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> مسرح المستقبل</span>
+                            <span><i class="far fa-clock"></i> ٧:٣٠ م</span>
+                        </div>
+                        <div class="show-card-price">١٤٥ ر.س</div>
+                    </div>
+                </a>
+                
+                <a href="#" class="show-card">
+                    <div class="show-card-image">
+                        <img src="https://via.placeholder.com/300x200" alt="مسرحية الصداقة">
+                        <div class="show-card-date">
+                            <div class="card-day">٥</div>
+                            <div class="card-month">فبراير</div>
+                        </div>
+                    </div>
+                    <div class="show-card-info">
+                        <h3 class="show-card-title">مسرحية "الصداقة"</h3>
+                        <div class="show-card-meta">
+                            <span><i class="fas fa-map-marker-alt"></i> مسرح البلد</span>
+                            <span><i class="far fa-clock"></i> ٧:٠٠ م</span>
+                        </div>
+                        <div class="show-card-price">١٢٠ ر.س</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="floating-share">
+        <i class="fas fa-share-alt"></i>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    الميدان <span class="logo-en">Maydan</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">تواصل معنا</a>
+                    <a href="#">الشروط والأحكام</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                © 2025 الميدان. جميع الحقوق محفوظة
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tab switching functionality
+        document.querySelectorAll('.info-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and tab contents
+                document.querySelectorAll('.info-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = tab.getAttribute('data-tab') + '-tab';
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Quantity selector
+        const quantityInput = document.querySelector('.quantity-input');
+        const decreaseBtn = document.querySelector('.decrease-btn');
+        const increaseBtn = document.querySelector('.increase-btn');
+        const totalValue = document.querySelector('.total-value');
+        const unitPrice = 150;
+        
+        decreaseBtn.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                currentValue--;
+                quantityInput.value = currentValue;
+                updateTotal(currentValue);
+            }
+        });
+        
+        increaseBtn.addEventListener('click', () => {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {  // Maximum 10 tickets per order
+                currentValue++;
+                quantityInput.value = currentValue;
+                updateTotal(currentValue);
+            }
+        });
+        
+        function updateTotal(quantity) {
+            const total = unitPrice * quantity;
+            totalValue.textContent = total + ' ر.س';
+        }
+        
+        // Floating share button
+        document.querySelector('.floating-share').addEventListener('click', function() {
+            alert('مشاركة هذه الصفحة');
+        });
+    </script>
+</body>
+</html>
